@@ -19,19 +19,6 @@ red_led.off()
 #     blue_led.on()
 #     sleep(0.5)
 
-def rgb(red, green, blue):
-    if red == 1:
-        red_led.on()
-    else:
-        red_led.off()
-    if green == 1:
-        green_led.on()
-    else:
-        green_led.off()
-    if blue == 1:
-        blue_led.on()
-    else:
-        blue_led.off()
 
 def rgb_(red, green, blue):
     red_led.value(red)
