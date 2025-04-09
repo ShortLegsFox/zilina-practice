@@ -1,39 +1,15 @@
-from machine import Pin
-from time import sleep
-
-red_led = Pin(25, Pin.OUT)
-blue_led = Pin(26, Pin.OUT)
-green_led = Pin(33, Pin.OUT)
-
-# -- Allume, attends 0.5s et éteins la led rouge
-red_led.on()
-sleep(0.5)
-red_led.off()
-
-# -- Boucle clignotant avec les 3 couleurs (i = 0.5s)
-# while True:
-#     red_led.on()
-#     blue_led.off()
-#     sleep(0.5)
-#     red_led.off()
-#     blue_led.on()
-#     sleep(0.5)
+from machine import Pin, I2C
+from lib.ssd1306 import SSD1306_I2C
+import time
 
 
-def rgb_(red, green, blue):
-    red_led.value(red)
-    green_led.value(green)
-    blue_led.value(blue)
+i2c = I2C(0, sda=Pin(21), scl=Pin(22), freq=400000)
 
-colors = [(0, 0, 0),
-          (1, 0, 0),
-          (0, 1, 0),
-          (0, 0, 1),
-          (1, 0, 1),
-          (0, 1, 1),
-          (1, 0, 1),
-          (0, 0, 0)]
+oled = SSD1306_I2C(128, 32, i2c)
 
-for color in colors:
-    rgb_(color[0], color[1], color[2])
-    sleep(0.5)
+number = 21
+
+oled.fill(0)
+oled.text("Hello", 0, 0)
+oled.text("Number" + str(number), 10, 10)
+oled.show()
