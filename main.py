@@ -28,9 +28,9 @@ print()
 
 # starting work with thingspeak
 
-THINGSPEAK_WRITE_API_KEY = 'R2LY068XK1MTKGH2'
-THINGSPEAK_READ_API_KEY = '6SM10TGBXPDTDKDG'
-CHANNEL_ID = '2531788'
+THINGSPEAK_WRITE_API_KEY = os.environ.get('THINGSPEAK_WRITE_API_KEY')
+THINGSPEAK_READ_API_KEY = os.environ.get('THINGSPEAK_READ_API_KEY')
+CHANNEL_ID = os.environ.get('CHANNEL_ID')
 
 thing_speak = ThingSpeak()
 thing_speak.set_write_api_key(THINGSPEAK_WRITE_API_KEY)
