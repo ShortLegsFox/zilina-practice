@@ -3,3 +3,4 @@ firebase
 mqtt
 thingspeak
 .env
+secrets.py

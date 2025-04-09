@@ -1,12 +1,12 @@
-import os
+import secrets
 from lib.u_thing_speak import ThingSpeak
 import network
 import time
 
 # starting connecting to WiFi network
 
-ssid = os.environ.get('WIFI_SSID')
-password = os.environ.get('WIFI_PASSWORD')
+ssid = secrets.WIFI_SSID
+password = secrets.WIFI_PASSWORD
 
 station = network.WLAN(network.STA_IF)
 
@@ -28,9 +28,9 @@ print()
 
 # starting work with thingspeak
 
-THINGSPEAK_WRITE_API_KEY = os.environ.get('THINGSPEAK_WRITE_API_KEY')
-THINGSPEAK_READ_API_KEY = os.environ.get('THINGSPEAK_READ_API_KEY')
-CHANNEL_ID = os.environ.get('CHANNEL_ID')
+THINGSPEAK_WRITE_API_KEY = secrets.THINGSPEAK_WRITE_API_KEY
+THINGSPEAK_READ_API_KEY = secrets.THINGSPEAK_READ_API_KEY
+CHANNEL_ID = secrets.CHANNEL_ID
 
 thing_speak = ThingSpeak()
 thing_speak.set_write_api_key(THINGSPEAK_WRITE_API_KEY)
